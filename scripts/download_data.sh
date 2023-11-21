@@ -14,9 +14,23 @@ fi
 
 pip install kaggle --upgrade
 
-kaggle datasets download -d bulentsiyah/semantic-drone-dataset
+if [[ ! -f lung-mask-image-dataset.zip ]]; then
+  kaggle datasets download -d newra008/lung-mask-image-dataset
+fi
 
-mv semantic-drone-dataset.zip ../data/
-cd ../data/
-unzip semantic-drone-dataset.zip
-rm semantic-drone-dataset.zip
+if [ -z "$1" ]; then
+  echo "Error: please specify the path to the data directory"
+  exit 1
+fi
+
+TARGET_DIR=$1
+
+if [[ ! -d "$TARGET_DIR" ]]; then
+  mkdir -p "$TARGET_DIR"
+  unzip lung-mask-image-dataset.zip -d "$TARGET_DIR"
+  mv "$TARGET_DIR/ChestXray"/* "$TARGET_DIR"
+  rm -rf "$TARGET_DIR/ChestXray"
+else
+  echo "Error: Target directory '$TARGET_DIR' not empty. Have you already downloaded the data?"  
+fi
+
