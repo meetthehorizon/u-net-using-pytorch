@@ -30,6 +30,7 @@ if [[ ! -d "$TARGET_DIR" ]]; then
   unzip lung-mask-image-dataset.zip -d "$TARGET_DIR"
   mv "$TARGET_DIR/ChestXray"/* "$TARGET_DIR"
   rm -rf "$TARGET_DIR/ChestXray"
+  rm lung-mask-image-dataset.zip
 else
   echo "Error: Target directory '$TARGET_DIR' not empty. Have you already downloaded the data?"  
 fi
