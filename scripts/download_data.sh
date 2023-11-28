@@ -35,3 +35,4 @@ else
   echo "Error: Target directory '$TARGET_DIR' not empty. Have you already downloaded the data?"  
 fi
 
+rm -rf "$TARGET_DIR/lung-mask-image-dataset.zip" 
