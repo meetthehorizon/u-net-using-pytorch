@@ -50,7 +50,5 @@ def display_image_and_mask(num_images=3):
 	# Display the plot
 	plt.show()
 	
-	
-
 if __name__ == '__main__':
 	print('passed')
