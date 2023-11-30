@@ -116,6 +116,7 @@ for epoch in range(start_epoch, num_epochs):
 	plt.legend()
 	plt.savefig(f'plots/epoch-{epoch}.jpg', format='jpg')
 	checkpoint(model, f'model_states/epoch-{epoch}.pth')
+	plt.close()
 	
 	start_epoch += 1
 	
