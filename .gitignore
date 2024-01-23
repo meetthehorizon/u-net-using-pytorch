@@ -2,6 +2,6 @@ data
 .kaggle
 lung-mask-image-dataset.zip
 __pycache__
-model_states
-plots
-states
+model_states/*
+plots/*
+states/*
