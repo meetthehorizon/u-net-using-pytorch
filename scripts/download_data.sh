@@ -1,18 +1,18 @@
 #!/bin/bash
 
-if [[ ! -f ~/.kaggle/kaggle.json ]]; then
-  echo -n "Kaggle username: "
-  read USERNAME
-  echo
-  echo -n "Kaggle API key: "
-  read APIKEY
+# if [[ ! -f ~/.kaggle/kaggle.json ]]; then
+#   echo -n "Kaggle username: "
+#   read USERNAME
+#   echo
+#   echo -n "Kaggle API key: "
+#   read APIKEY
 
-  mkdir -p ~/.kaggle
-  echo "{\"username\":\"$USERNAME\",\"key\":\"$APIKEY\"}" > ~/.kaggle/kaggle.json
-  chmod 600 ~/.kaggle/kaggle.json
-fi
+#   mkdir -p ~/.kaggle
+#   echo "{\"username\":\"$USERNAME\",\"key\":\"$APIKEY\"}" > ~/.kaggle/kaggle.json
+#   chmod 600 ~/.kaggle/kaggle.json
+# fi
 
-pip install kaggle --upgrade
+# pip install kaggle --upgrade
 
 if [[ ! -f lung-mask-image-dataset.zip ]]; then
   kaggle datasets download -d newra008/lung-mask-image-dataset
@@ -30,7 +30,7 @@ if [[ ! -d "$TARGET_DIR" ]]; then
   unzip lung-mask-image-dataset.zip -d "$TARGET_DIR"
   mv "$TARGET_DIR/ChestXray"/* "$TARGET_DIR"
   rm -rf "$TARGET_DIR/ChestXray"
-  rm lung-mask-image-dataset.zip
+  # rm lung-mas k-image-dataset.zip
 else
   echo "Error: Target directory '$TARGET_DIR' not empty. Have you already downloaded the data?"  
 fi
